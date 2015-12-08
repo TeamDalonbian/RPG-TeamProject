@@ -64,15 +64,26 @@ namespace WitchHunter.Models.Characters.Heroes
         public override void Update()
         {
             base.Update();
+
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.Space) && !this.HasAttacked)
+            {
+                this.Cast(this.Direction);
+                this.HasAttacked = true;
+            }
+            else if (state.IsKeyUp(Keys.Space))
+            {
+                this.HasAttacked = false;
+            }
         }
         public override void RespondToCollision(GameObject hitObject)
         {
             base.RespondToCollision(hitObject);
 
-            if (hitObject is Obstacle)
-            {
-                this.Speed = 0;
-            }
+            //if (hitObject is Obstacle)
+            //{
+            //    this.Speed = 0;
+            //}
 
         }
 

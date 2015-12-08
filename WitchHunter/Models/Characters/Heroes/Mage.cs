@@ -7,6 +7,7 @@ using System.Text;
 using WitchHunter.Exceptions;
 using WitchHunter.Interfaces;
 using WitchHunter.Models.MapTextures.Obstacles;
+using WitchHunter.Models.Spells;
 
 namespace WitchHunter.Models.Characters.Heroes
 {
@@ -86,7 +87,7 @@ namespace WitchHunter.Models.Characters.Heroes
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            if (hitObject is Character || hitObject is Obstacle)
+            if (hitObject is Character && !hitObject.Equals(this) || hitObject is Obstacle || hitObject is Spell)
             {
                 this.Rectangle = new Rectangle(
                     (int)this.PreviousPosition.X,

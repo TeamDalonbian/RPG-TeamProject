@@ -15,12 +15,14 @@ namespace WitchHunter.Engine
     {
         public static GameObject GetCollisionInfo(GameObject obj)
         {
+
+
             var collidingObject = GameEngine.gameObjects
                     .FirstOrDefault(gameObject => (!gameObject.Equals(obj) && gameObject.Rectangle.Intersects(obj.Rectangle)));
 
-            if (obj is Tree)
+            if (obj is Obstacle)
             {
-                collidingObject = GameEngine.gameObjects.FirstOrDefault(gameObject => (gameObject is Character) && gameObject.Rectangle.Intersects(obj.Rectangle));
+                collidingObject = GameEngine.gameObjects.FirstOrDefault(gameObject => (gameObject is Spell || gameObject is Character) && gameObject.Rectangle.Intersects(obj.Rectangle));
             }
 
             return collidingObject;

@@ -1,28 +1,23 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 using WitchHunter.Exceptions;
-using WitchHunter.Interfaces;
 
 namespace WitchHunter.Models
 {
-    public abstract class GameObject : IColliadable
+    public class BackgroundObject
     {
         protected Texture2D objTexture;
         protected Rectangle rectangle;
 
-        protected GameObject(Texture2D objTexture, Rectangle rectangle)
+        protected BackgroundObject(Texture2D objTexture, Rectangle rectangle)
         {
             this.ObjTexture = objTexture;
             this.Rectangle = rectangle;
-            this.State = GameObjectStates.Intact;
         }
-
         public Rectangle Rectangle
         {
             get { return this.rectangle; }
@@ -40,20 +35,13 @@ namespace WitchHunter.Models
 
         public Texture2D ObjTexture { get { return this.objTexture; } set { this.objTexture = value; } }
 
-        public GameObjectStates State { get; set; }
-
-        public abstract void Update();
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle rect = new Rectangle(this.Rectangle.X - 25, this.Rectangle.Y - 25,
+            Rectangle rect = new Rectangle(this.Rectangle.X, this.Rectangle.Y,
                 this.Rectangle.Width, this.Rectangle.Height);
 
             spriteBatch.Draw(this.objTexture, rect, Color.White);
         }
-
-        public abstract void RespondToCollision(GameObject hitObject);
-        
-
     }
 }

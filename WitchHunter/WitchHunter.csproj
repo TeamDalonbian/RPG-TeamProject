@@ -43,13 +43,13 @@
     <Compile Include="Engine\MapLoader.cs" />
     <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
     <Compile Include="Interfaces\IAttack.cs" />
-    <Compile Include="Interfaces\IBackGround.cs" />
     <Compile Include="Interfaces\ICollect.cs" />
     <Compile Include="Interfaces\ICollectable.cs" />
     <Compile Include="Interfaces\IColliadable.cs" />
     <Compile Include="Interfaces\IDestroyable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Messages\Message.cs" />
+    <Compile Include="Models\MapTextures\BackgroundObject.cs" />
     <Compile Include="Models\Characters\Character.cs" />
     <Compile Include="Models\Characters\Heroes\Direction.cs" />
     <Compile Include="Models\Characters\Heroes\Mage.cs" />
@@ -60,6 +60,7 @@
     <Compile Include="Models\MapTextures\Grass.cs" />
     <Compile Include="Models\MapTextures\Obstacles\Obstacle.cs" />
     <Compile Include="Models\MapTextures\Obstacles\Tree.cs" />
+    <Compile Include="Models\Spells\FrostBolt.cs" />
     <Compile Include="Models\Spells\Spell.cs" />
     <Compile Include="WitchHunterApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

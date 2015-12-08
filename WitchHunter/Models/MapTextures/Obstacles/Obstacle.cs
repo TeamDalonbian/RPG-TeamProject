@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WitchHunter.Models.Spells;
 
 namespace WitchHunter.Models.MapTextures.Obstacles
 {
@@ -13,6 +14,14 @@ namespace WitchHunter.Models.MapTextures.Obstacles
             : base(objTexture, rectangle)
         {
 
+        }
+
+        public override void RespondToCollision(GameObject hitObject)
+        {
+            if (hitObject is Spell)
+            {
+                this.State = GameObjectStates.Destroyed;
+            }
         }
     }
 

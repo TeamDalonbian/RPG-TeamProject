@@ -9,20 +9,11 @@ using WitchHunter.Interfaces;
 
 namespace WitchHunter.Models.MapTextures
 {
-    class Grass : GameObject, IBackGround
+    class Grass : BackgroundObject
     {
 
         public Grass(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle)
-        {
-        }
-
-
-        public override void Update()
-        {
-        }
-
-        public override void RespondToCollision(GameObject hitObject)
         {
         }
     }

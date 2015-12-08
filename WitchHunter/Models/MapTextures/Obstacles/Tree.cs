@@ -16,5 +16,11 @@ namespace WitchHunter.Models.MapTextures
             : base(objTexture, rectangle)
         {
         }
+
+
+
+        public override void Update()
+        {
+        }
     }
 }

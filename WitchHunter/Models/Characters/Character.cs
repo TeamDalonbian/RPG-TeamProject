@@ -47,10 +47,49 @@ namespace WitchHunter.Models.Characters
 
         public void Cast(Direction direction)
         {
-            throw new NotImplementedException();
+            Rectangle spellPosition;
+            int rectangleBulletMinimizedWidth = this.Rectangle.Width / 3;
+            int rectangleBulletMinimizedHeight = this.Rectangle.Height / 3;
+
+            switch (direction)
+            {
+                case Direction.Down:
+                    spellPosition = new Rectangle(
+                        this.Rectangle.X + 15,
+                        this.Rectangle.Y + 50,
+                        rectangleBulletMinimizedWidth,
+                        rectangleBulletMinimizedHeight);
+                    break;
+                case Direction.Up:
+                    spellPosition = new Rectangle(
+                        this.Rectangle.X + 15,
+                        this.Rectangle.Y - 25,
+                        rectangleBulletMinimizedWidth,
+                        rectangleBulletMinimizedHeight);
+                    break;
+                case Direction.Left:
+                    spellPosition = new Rectangle(
+                        this.Rectangle.X - 15,
+                        this.Rectangle.Y + 25,
+                        rectangleBulletMinimizedWidth,
+                        rectangleBulletMinimizedHeight);
+                    break;
+                case Direction.Right:
+                    spellPosition = new Rectangle(
+                        this.Rectangle.X + 40,
+                        this.Rectangle.Y + 20,
+                        rectangleBulletMinimizedWidth,
+                        rectangleBulletMinimizedHeight);
+                    break;
+                default:
+                    throw new Exception();
+            }
+
+
+            GameEngine.gameObjects.Add(new FrostBolt(GameEngine.frostBolt, spellPosition, this.Damage, direction));
         }
 
-      
-     
+
+
     }
 }

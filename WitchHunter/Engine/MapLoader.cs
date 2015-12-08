@@ -16,6 +16,7 @@ namespace WitchHunter.Engine
         public static List<GameObject> LoadMap(SpriteBatch spriteBatch)
         {
             List<GameObject> gameObjects = new List<GameObject>();
+
             string map = "../../../Maps/FirstMap.txt";
 
             try
@@ -38,17 +39,18 @@ namespace WitchHunter.Engine
                         {
                             case 'P':
                                 rect = new Rectangle(
-                                    positionX - GameEngine.Offset,
-                                    positionY - GameEngine.Offset,
+                                    positionX,
+                                    positionY,
                                     textureSize,
                                     textureSize);
 
                                 gameObjects.Add(new Player(GameEngine.playerText, rect));
                                 break;
                             case 'T':
+                                
                                 rect = new Rectangle(
-                                    positionX - GameEngine.Offset,
-                                    positionY - GameEngine.Offset,
+                                    positionX,
+                                    positionY,
                                     textureSize,
                                     textureSize);
                                 gameObjects.Add(new Tree(GameEngine.treeText, rect));
@@ -60,12 +62,12 @@ namespace WitchHunter.Engine
                         }
 
                         rect = new Rectangle(
-                                   positionX - GameEngine.Offset,
-                                   positionY - GameEngine.Offset,
+                                   positionX,
+                                   positionY,
                                    textureSize,
                                    textureSize);
 
-                        gameObjects.Add(new Grass(GameEngine.grasText, rect));
+                        GameEngine.backgroundObjecst.Add(new Grass(GameEngine.grasText, rect));
                         positionX += textureSize;
                     }
                 }
